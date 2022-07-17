@@ -5,6 +5,8 @@ export type Post = {
   description: string;
   postedAt: string;
   tags: string[];
+  authorName: string;
+  authorAvatar: string;
 };
 
 export type PostDetail = {
@@ -15,4 +17,6 @@ export type PostDetail = {
   postedAt: string;
   tags: string[];
   content: string;
+  authorName: string;
+  authorAvatar: string;
 };

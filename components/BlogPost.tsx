@@ -11,6 +11,8 @@ export default function BlogPost({
   tags,
   title,
   slug,
+  authorAvatar,
+  authorName,
 }: Post) {
   return (
     <article className={tw`border shadow rounded-lg`}>
@@ -34,6 +36,20 @@ export default function BlogPost({
           {tags.map((tag) => (
             <Tag title={tag} key={tag} />
           ))}
+        </div>
+
+        <div className="mt-4">
+          <div className={tw`flex items-center space-x-3`}>
+            <img
+              src={authorAvatar}
+              alt={authorName}
+              className={tw`w-12 h=12 rounded-full`}
+            />
+            <div>
+            <h6 className={tw`font-medium`}>{authorName}</h6>
+            <p className={tw`text-gray-500 text-sm`}>Author</p>
+            </div>
+          </div>
         </div>
       </div>
     </article>

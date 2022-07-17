@@ -11,6 +11,8 @@ tags:
   - javascript
   - wasm
 
+authorName: Harsh mangalam 
+authorAvatar: https://avatars.githubusercontent.com/u/57381638?v=4
 
 github : harshmangalam/ffmpeg-solidjs
 ---

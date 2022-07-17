@@ -20,6 +20,7 @@ export const handler: Handlers = {
         posts.push(markup.meta);
       }
     }
+    console.log(posts)
     return ctx.render({ posts });
   },
 };

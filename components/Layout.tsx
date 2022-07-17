@@ -19,11 +19,13 @@ export default function Layout({ title, children }: LayoutProps) {
       <nav
         className={tw`flex justify-between items-center max-w-5xl py-8 mx-auto px-4`}
       >
-        <h1
+       <a href="/">
+       <h1
           className={tw`text-3xl font-medium`}
         >
           Fresh Blog
         </h1>
+       </a>
 
         <section>
           <ThemeSwitcher />
