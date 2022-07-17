@@ -18,7 +18,7 @@ export default function BlogAuthor({
       />
       <div>
         <h6 className={tw`font-medium`}>{authorName}</h6>
-        <p className={tw`text-gray-500 text-sm`}>Author</p>
+        <p className={tw`text-gray-500 text-sm dark:text-gray-400`}>Author</p>
       </div>
     </div>
   );

@@ -16,7 +16,9 @@ export default function BlogPost({
   authorName,
 }: Post) {
   return (
-    <article className={tw`border shadow rounded-lg`}>
+    <article
+      className={tw`border shadow rounded-lg dark:border-gray-700 bg-gray-800`}
+    >
       <img
         src={poster}
         alt={"Poster image"}
@@ -25,13 +27,15 @@ export default function BlogPost({
       <div className={tw`p-4`}>
         <a
           href={`/${slug}`}
-          className={tw`hover:text-blue-400 text-xl font-medium`}
+          className={tw`hover:text-blue-400 dark:text-blue-500 text-xl font-medium`}
         >
           {title}
         </a>
-        <p className={tw`mt-2 text-gray-500`}>{postedAt}</p>
+        <p className={tw`mt-2 text-gray-500 dark:text-gray-400`}>{postedAt}</p>
 
-        <p className={tw`text-lg text-gray-600 mt-2`}>{description}</p>
+        <p className={tw`text-lg text-gray-600 mt-2 dark:text-gray-300 `}>
+          {description}
+        </p>
 
         <div className={tw`mt-4 flex flex-wrap gap-4`}>
           {tags.map((tag) => (
@@ -40,7 +44,7 @@ export default function BlogPost({
         </div>
 
         <div className="mt-4">
-         <BlogAuthor authorAvatar={authorAvatar} authorName={authorName}  />
+          <BlogAuthor authorAvatar={authorAvatar} authorName={authorName} />
         </div>
       </div>
     </article>
