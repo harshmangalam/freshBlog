@@ -10,12 +10,16 @@ export const handler: Handlers = {
   async GET(req, ctx) {
     const BLOG_DIR = "blog";
     const posts = [];
+    // async iterator to get all md files in blog dir
     for await (const dir of Deno.readDir(BLOG_DIR)) {
       if (dir.isFile) {
+        // utf-8 text decoder
         const decoder = new TextDecoder("utf-8");
+        // decode md file
         const markdown = decoder.decode(
           await Deno.readFile(`${BLOG_DIR}/${dir.name}`)
         );
+        // parse md file into metadata and content
         const markup = Marked.parse(markdown);
         posts.push(markup.meta);
       }
@@ -37,16 +41,3 @@ export default function Blog({ data }: PageProps) {
     </Layout>
   );
 }
-
-const posts = [
-  {
-    title: "Lets explore about the event loop in nodejs and javascript",
-    poster:
-      "https://d33wubrfki0l68.cloudfront.net/3bfd00a5f4b80c67391aa7590e14acf60737f6c0/925de/blog/posts/nestjs-prisma-rest-api.png",
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quia similique fugit magni placeat nam deleniti vel ipsum. Saepe necessitatibus.`,
-    readTime: "20 min",
-    postedAt: "22 July 2022",
-    tags: ["javascript", "nodejs", "event loop"],
-    slug: "lets-exlore-about-the-event-loop-in-nodejs-and-javascript",
-  },
-];
