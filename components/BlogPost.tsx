@@ -3,6 +3,7 @@ import { h } from "preact";
 import { tw } from "@twind";
 import { Post } from "types/blog.ts";
 import Tag from "./Tag.tsx";
+import BlogAuthor from "./BlogAuthor.tsx";
 
 export default function BlogPost({
   description,
@@ -39,17 +40,7 @@ export default function BlogPost({
         </div>
 
         <div className="mt-4">
-          <div className={tw`flex items-center space-x-3`}>
-            <img
-              src={authorAvatar}
-              alt={authorName}
-              className={tw`w-12 h=12 rounded-full`}
-            />
-            <div>
-            <h6 className={tw`font-medium`}>{authorName}</h6>
-            <p className={tw`text-gray-500 text-sm`}>Author</p>
-            </div>
-          </div>
+         <BlogAuthor authorAvatar={authorAvatar} authorName={authorName}  />
         </div>
       </div>
     </article>
