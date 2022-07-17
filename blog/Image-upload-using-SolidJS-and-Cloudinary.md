@@ -87,7 +87,7 @@ export default function useCloudinary() {
       formData.append("public_id", shortid.generate());
 
       const response = await axios.post(url, formData, {
-        onUploadProgress: handleUploadProgess,
+        onUploadProgress: handleUploadProgress,
         cancelToken: store.abortToken.token,
       });
       setStore("alert", {
@@ -103,7 +103,7 @@ export default function useCloudinary() {
     }
   }
 
-  function handleUploadProgess(progressEv) {
+  function handleUploadProgress(progressEv) {
     const progress = Math.floor((progressEv.loaded / store.image.size) * 100);
     console.log(progress);
     setStore("uploadProgress", progress);
@@ -151,7 +151,7 @@ memory acquired by blob metadata.
 request and when image successfully uploaded it revoke blob url and show image
 from cloudinary url.
 
-`handleUploadProgess()` function track uploaded chunk of image data.
+`handleUploadProgress()` function track uploaded chunk of image data.
 
 `handleCancelUpload()` function cancel axios request.
 
