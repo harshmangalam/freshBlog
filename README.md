@@ -18,13 +18,12 @@ description : post small description
 slug: add unique slug of post
 poster : add post image
 
-postedAt : posted date 17 Jul, 2022
+postedAt : posted date  i.e 17 Jul, 2022
 tags: 
-  - solidjs
-  - cloudinary
-  - javascript
-  - axios
-  - suid
+  - tag1
+  - tag2
+  - tag3
+
 
 authorName: your name
 authorAvatar: your avatar url
