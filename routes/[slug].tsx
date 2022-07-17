@@ -5,7 +5,8 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import Layout from "components/Layout.tsx";
 import { Marked } from "https://deno.land/x/markdown@v2.0.0/mod.ts";
 import { PostDetail } from "types/blog.ts";
-
+import { fetchRepoMetadata } from "utils/github.ts";
+import GithubRepo from "components/GithubRepo.tsx";
 export const handler: Handlers = {
   async GET(req, ctx) {
     const BLOG_DIR = "blog";
@@ -17,12 +18,21 @@ export const handler: Handlers = {
     );
     const markup = Marked.parse(markdown);
 
-    return ctx.render({ post: { ...markup.meta, content: markup.content } });
+    let github;
+    if (markup.meta.github) {
+      github = await fetchRepoMetadata(markup.meta.github);
+    }
+
+    return ctx.render({
+      post: { ...markup.meta, content: markup.content },
+      github,
+    });
   },
 };
 
 export default function Blog({ data }: PageProps) {
   const post: PostDetail = data.post;
+  const github = data?.github;
   return (
     <Layout title={post.title}>
       <div>
@@ -31,7 +41,7 @@ export default function Blog({ data }: PageProps) {
           alt="Post cover image"
           className={tw`rounded-lg`}
         />
-        <h2 className={tw`font-medium text-3xl mt-4`}>{post.title}</h2>
+        <h2 className={tw`font-medium text-3xl mt-8`}>{post.title}</h2>
         <p className={tw`mt-2 text-gray-600 text-lg`}>{post.postedAt}</p>
         <div className={tw`mt-4 flex flex-wrap gap-4`}>
           {post.tags.map((tag) => (
@@ -42,10 +52,12 @@ export default function Blog({ data }: PageProps) {
             </p>
           ))}
         </div>
+        <div className={tw`mt-4`}>{github && <GithubRepo {...github} />}</div>
         <div
-          className={tw`mt-8 prose lg:prose-xl`}
+          className={tw`mt-8 prose lg:prose-xl overflow-x-auto`}
           dangerouslySetInnerHTML={{ __html: post.content }}
         ></div>
+       
       </div>
     </Layout>
   );

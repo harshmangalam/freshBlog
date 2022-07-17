@@ -10,6 +10,9 @@ tags:
   - solidjs
   - javascript
   - wasm
+
+
+github : harshmangalam/ffmpeg-solidjs
 ---
 
 Hi, Developers in this blog post i will show you how you can utilize ffmpeg in
@@ -297,5 +300,3 @@ pnpm run dev
 ![Home](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kvvwnnq2hib4y4leyb6b.png)
 
 ![Video](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/w6lbvbpitjha35kon0p2.png)
-
-{% embed https://github.com/harshmangalam/ffmpeg-solidjs %}
