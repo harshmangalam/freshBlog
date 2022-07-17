@@ -41,7 +41,7 @@ export default function Blog({ data }: PageProps) {
         <img
           src={post.poster}
           alt="Post cover image"
-          className={tw`rounded-lg`}
+          className={tw`blog-post--img rounded-lg`}
         />
       
         </div>

@@ -14,6 +14,7 @@ export default function Layout({ title, children }: LayoutProps) {
     <div class={tw`min-h-screen bg-white dark:bg-gray-900 dark:text-gray-100`}>
       <Head>
         <title>{title}</title>
+        <link rel="stylesheet" href="index.css" />
       </Head>
       {/* navbar  */}
       <nav

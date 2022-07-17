@@ -4,7 +4,6 @@ import { tw } from "@twind";
 import { Post } from "types/blog.ts";
 import Tag from "./Tag.tsx";
 import BlogAuthor from "./BlogAuthor.tsx";
-
 export default function BlogPost({
   description,
   postedAt,
@@ -22,12 +21,13 @@ export default function BlogPost({
       <img
         src={poster}
         alt={"Poster image"}
-        className={tw`aspect-square object-fit w-full h-60 rounded-t-lg`}
+        className={tw`blog-post--img object-fit rounded-t-lg`}
       />
+
       <div className={tw`p-4`}>
         <a
           href={`/${slug}`}
-          className={tw`hover:text-blue-400 dark:text-blue-500 text-xl font-medium`}
+          className={tw`dark:text-gray-100 text-xl font-medium`}
         >
           {title}
         </a>
