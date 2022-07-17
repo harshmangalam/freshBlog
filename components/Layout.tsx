@@ -19,6 +19,8 @@ export default function Layout({ title, children }: LayoutProps) {
           name="description"
           content="Fullstack blog web app build with deno fresh"
         />
+        <link rel="manifest" href="site.webmanifest" />
+        
       </Head>
       {/* navbar  */}
       <nav
