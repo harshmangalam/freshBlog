@@ -29,7 +29,7 @@ export default function Blog({ data }: PageProps) {
   return (
     <Layout title="Blog">
       <div>
-        <section className={tw`grid grid-cols-1 md:grid-cols-2`}>
+        <section className={tw`grid grid-cols-1 gap-4 md:grid-cols-2`}>
           {posts.map((post) => (
             <BlogPost key={post.slug} {...post} />
           ))}
