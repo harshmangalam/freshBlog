@@ -9,6 +9,6 @@
     "twind/": "https://esm.sh/twind@0.16.17/",
     "components/": "./components/",
     "islands/": "./islands/",
-    "types/":"./types/"
+    "types/": "./types/"
   }
 }

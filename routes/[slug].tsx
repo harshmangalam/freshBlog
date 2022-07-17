@@ -43,7 +43,7 @@ export default function Blog({ data }: PageProps) {
           ))}
         </div>
         <div
-          className={tw`mt-8`}
+          className={tw`mt-8 prose lg:prose-xl`}
           dangerouslySetInnerHTML={{ __html: post.content }}
         ></div>
       </div>
