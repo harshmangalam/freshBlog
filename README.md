@@ -9,6 +9,8 @@ deno task start
 ```
 ## Template
 
+```
+
 ---
 title: post title
 description : post small description
@@ -28,7 +30,10 @@ authorName: your name
 authorAvatar: your avatar url
 
 github : username/repo
+
 ---
 
 
 post content here...
+
+```
