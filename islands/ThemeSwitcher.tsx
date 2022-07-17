@@ -28,6 +28,7 @@ export default function ThemeSwitcher() {
   };
   return (
     <button
+      aria-label="theme switcher"
       disabled={!IS_BROWSER}
       onClick={handleDarkMode}
       className={tw`rounded-full border border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 focus:outline-none h-10 w-10 grid place-items-center text-gray-500`}

@@ -17,7 +17,7 @@ export default function BlogAuthor({
         className={tw`w-12 h=12 rounded-full`}
       />
       <div>
-        <h6 className={tw`font-medium`}>{authorName}</h6>
+        <h2 className={tw`font-medium`}>{authorName}</h2>
         <p className={tw`text-gray-500 text-sm dark:text-gray-400`}>Author</p>
       </div>
     </div>
