@@ -27,7 +27,7 @@ export default function GithubRepo({
         <a
           href={html_url}
           target="_blank"
-          className={tw`font-bold block flex-1 text-blue-400 hover:underline`}
+          className={tw`font-bold block flex-1 dark:text-gray-100 hover:underline`}
         >
           {name}
         </a>
