@@ -2,6 +2,7 @@
 import { h } from "preact";
 import { tw } from "@twind";
 import { Post } from "types/blog.ts";
+import Tag from "./Tag.tsx";
 
 export default function BlogPost({
   description,
@@ -31,7 +32,7 @@ export default function BlogPost({
 
         <div className={tw`mt-4 flex flex-wrap gap-4`}>
           {tags.map((tag) => (
-            <p className={tw`text-sm rounded-full px-3 py-1 border text-gray-600 uppercase`}>{tag}</p>
+            <Tag title={tag} key={tag} />
           ))}
         </div>
       </div>

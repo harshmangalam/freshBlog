@@ -7,6 +7,7 @@ import { Marked } from "https://deno.land/x/markdown@v2.0.0/mod.ts";
 import { PostDetail } from "types/blog.ts";
 import { fetchRepoMetadata } from "utils/github.ts";
 import GithubRepo from "components/GithubRepo.tsx";
+import Tag from "../components/Tag.tsx";
 export const handler: Handlers = {
   async GET(req, ctx) {
     const BLOG_DIR = "blog";
@@ -45,11 +46,7 @@ export default function Blog({ data }: PageProps) {
         <p className={tw`mt-2 text-gray-600 text-lg`}>{post.postedAt}</p>
         <div className={tw`mt-4 flex flex-wrap gap-4`}>
           {post.tags.map((tag) => (
-            <p
-              className={tw`text-sm rounded-full px-3 py-1 border text-gray-600 uppercase`}
-            >
-              {tag}
-            </p>
+            <Tag title={tag} key={tag} />
           ))}
         </div>
         <div className={tw`mt-4`}>{github && <GithubRepo {...github} />}</div>
@@ -57,7 +54,6 @@ export default function Blog({ data }: PageProps) {
           className={tw`mt-8 prose lg:prose-xl overflow-x-auto`}
           dangerouslySetInnerHTML={{ __html: post.content }}
         ></div>
-       
       </div>
     </Layout>
   );
