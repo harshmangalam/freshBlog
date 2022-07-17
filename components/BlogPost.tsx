@@ -1,27 +1,16 @@
 /** @jsx h */
-import { ComponentChildren, h } from "preact";
+import { h } from "preact";
 import { tw } from "@twind";
-import { Head } from "$fresh/runtime.ts";
-
-interface BlogPostProps {
-  slug: string;
-  title: string;
-  poster: string;
-  description: string;
-  readTime: string;
-  postedAt: string;
-  tags: string[];
-}
+import { Post } from "types/blog.ts";
 
 export default function BlogPost({
   description,
   postedAt,
   poster,
-  readTime,
   tags,
   title,
   slug,
-}: BlogPostProps) {
+}: Post) {
   return (
     <article className={tw`border shadow rounded-lg`}>
       <img
@@ -30,14 +19,21 @@ export default function BlogPost({
         className={tw`aspect-square object-fit w-full h-60 rounded-t-lg`}
       />
       <div className={tw`p-4`}>
-        <a href="/" className={tw`hover:text-blue-400 text-xl font-medium`}>{title}</a>
-        <p className={tw`mt-2 text-gray-500 flex space-x-2`}>
-          <span>{postedAt}</span>
-          <span>&bull;</span>
-          <span> {readTime}</span>
-        </p>
+        <a
+          href={`/${slug}`}
+          className={tw`hover:text-blue-400 text-xl font-medium`}
+        >
+          {title}
+        </a>
+        <p className={tw`mt-2 text-gray-500`}>{postedAt}</p>
 
         <p className={tw`text-lg text-gray-600 mt-2`}>{description}</p>
+
+        <div className={tw`mt-4 flex flex-wrap gap-4`}>
+          {tags.map((tag) => (
+            <p className={tw`text-sm rounded-full px-3 py-1 border text-gray-600 uppercase`}>{tag}</p>
+          ))}
+        </div>
       </div>
     </article>
   );

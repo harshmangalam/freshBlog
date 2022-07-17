@@ -1,28 +1,34 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
-import { Handlers } from "$fresh/server.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
 import Layout from "components/Layout.tsx";
 import BlogPost from "components/BlogPost.tsx";
 import { Marked } from "https://deno.land/x/markdown@v2.0.0/mod.ts";
-// export const handler: Handlers = {
-//   async GET(req, ctx) {
-//     const BLOG_DIR = "content/blog";
-//     for await (let dir of Deno.readDir(BLOG_DIR)) {
-//       const decoder = new TextDecoder("utf-8");
-//       const markdown = decoder.decode(await Deno.readFile(filename));
-//       const markup = Marked.parse(markdown);
-//       console.log(markup.content);
-//       console.log(JSON.stringify(markup.meta));
-//     }
-//     return ctx.render();
-//   },
-// };
-export default function Blog() {
+import { Post } from "../types/blog.ts";
+export const handler: Handlers = {
+  async GET(req, ctx) {
+    const BLOG_DIR = "blog";
+    const posts = [];
+    for await (const dir of Deno.readDir(BLOG_DIR)) {
+      if (dir.isFile) {
+        const decoder = new TextDecoder("utf-8");
+        const markdown = decoder.decode(
+          await Deno.readFile(`${BLOG_DIR}/${dir.name}`)
+        );
+        const markup = Marked.parse(markdown);
+        posts.push(markup.meta);
+      }
+    }
+    return ctx.render({ posts });
+  },
+};
+export default function Blog({ data }: PageProps) {
+  const posts: Post[] = data.posts;
   return (
     <Layout title="Blog">
       <div>
-        <section className={tw`grid grid-cols-1 md:grid-cols-3`}>
+        <section className={tw`grid grid-cols-1 md:grid-cols-2`}>
           {posts.map((post) => (
             <BlogPost key={post.slug} {...post} />
           ))}
