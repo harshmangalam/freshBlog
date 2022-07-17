@@ -1,11 +1,21 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { IS_BROWSER } from "$fresh/runtime.ts";
 
 export default function ThemeSwitcher() {
   const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const darkMode = JSON.parse(
+      window.localStorage.darkmode || "false"
+    ) as boolean;
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      setDarkMode(true);
+    }
+  }, []);
 
   const handleDarkMode = () => {
     if (darkMode) {
@@ -14,6 +24,7 @@ export default function ThemeSwitcher() {
       document.documentElement.classList.add("dark");
     }
     setDarkMode((d) => !d);
+    window.localStorage.setItem("darkmode", JSON.stringify(!darkMode));
   };
   return (
     <button

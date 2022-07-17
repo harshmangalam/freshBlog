@@ -11,7 +11,7 @@ interface LayoutProps {
 
 export default function Layout({ title, children }: LayoutProps) {
   return (
-    <div class={tw`min-h-screen bg-white`}>
+    <div class={tw`min-h-screen bg-white dark:bg-gray-900 dark:text-gray-100`}>
       <Head>
         <title>{title}</title>
       </Head>
