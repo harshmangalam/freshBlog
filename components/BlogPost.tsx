@@ -27,7 +27,7 @@ export default function BlogPost({
       <div className={tw`p-4`}>
         <a
           href={`/${slug}`}
-          className={tw`dark:text-gray-100 text-xl font-medium`}
+          className={tw`dark:text-gray-100 text-xl font-medium hover:underline`}
         >
           {title}
         </a>
