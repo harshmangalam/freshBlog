@@ -60,7 +60,7 @@ export default function GithubRepo({
               ></path>
             </svg>
           </div>
-          <p className={tw`text-xs text-gray-300`}>{stargazers_count}</p>
+          <p className={tw`text-xs dark:text-gray-300`}>{stargazers_count}</p>
         </div>
         <div className={tw`flex items-center space-x-2`}>
           <div>
@@ -80,7 +80,7 @@ export default function GithubRepo({
               ></path>
             </svg>
           </div>
-          <p className={tw`text-xs text-gray-300`}>{forks_count}</p>
+          <p className={tw`text-xs dark:text-gray-300`}>{forks_count}</p>
         </div>
       </div>
     </article>
