@@ -46,7 +46,7 @@ export default function Blog({ data }: PageProps) {
       
         </div>
         <h2 className={tw`font-medium text-3xl mt-8`}>{post.title}</h2>
-        <p className={tw`mt-2 text-gray-600 text-lg`}>{post.postedAt}</p>
+        <p className={tw`mt-2 text-gray-600 text-lg dark:text-gray-400`}>{post.postedAt}</p>
         <div className={tw`mt-4`}>
           <BlogAuthor
             authorAvatar={post.authorAvatar}
@@ -59,7 +59,7 @@ export default function Blog({ data }: PageProps) {
         </div>
         <div className={tw`mt-4`}>{github && <GithubRepo {...github} />}</div>
         <div
-          className={tw`mt-8 prose lg:prose-xl overflow-x-auto`}
+          className={tw`mt-8 prose lg:prose-xl overflow-x-auto dark:text-gray-400`}
           dangerouslySetInnerHTML={{ __html: post.content }}
         ></div>
       </div>

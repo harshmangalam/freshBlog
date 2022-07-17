@@ -17,7 +17,7 @@ export default function BlogPost({
 }: Post) {
   return (
     <article
-      className={tw`border shadow rounded-lg dark:border-gray-700 bg-gray-800`}
+      className={tw`border shadow rounded-lg dark:border-gray-700 dark:bg-gray-800`}
     >
       <img
         src={poster}

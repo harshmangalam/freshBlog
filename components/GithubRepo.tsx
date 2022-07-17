@@ -22,7 +22,7 @@ export default function GithubRepo({
   html_url,
 }: GithubRepoProps) {
   return (
-    <article className={tw`border  rounded-lg p-4`}>
+    <article className={tw`border  rounded-lg p-4 dark:border-gray-700`}>
       <div className={tw`flex items-center justify-between`}>
         <a
           href={html_url}
@@ -33,17 +33,17 @@ export default function GithubRepo({
         </a>
 
         <p
-          className={tw`text-xs px-2 py-1 border text-gray-500 rounded-full`}
+          className={tw`text-xs px-2 py-1 border text-gray-500 dark:text-gray-400 rounded-full dark:border-gray-400`}
         >
           {isPrivate ? "Private" : "Public"}
         </p>
       </div>
 
-      <p className={tw`mt-4 text-sm text-gray-500`}>{description}</p>
+      <p className={tw`mt-4 text-sm text-gray-500 dark:text-gray-400`}>{description}</p>
 
-      <div className={tw`mt-4 flex items-center space-x-4`}>
+      <div className={tw`mt-4 flex items-center space-x-4 `}>
         <div>
-          <p className={tw`text-sm text-gray-500`}> {language}</p>
+          <p className={tw`text-sm text-gray-500 dark:text-gray-400`}> {language}</p>
         </div>
         <div className={tw`flex items-center space-x-2`}>
           <div>
