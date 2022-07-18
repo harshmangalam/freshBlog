@@ -20,7 +20,6 @@ export default function Layout({ title, children }: LayoutProps) {
           content="Fullstack blog web app build with deno fresh"
         />
         <link rel="manifest" href="site.webmanifest" />
-        
       </Head>
       {/* navbar  */}
       <nav
@@ -35,6 +34,11 @@ export default function Layout({ title, children }: LayoutProps) {
         </section>
       </nav>
       <main className={tw`px-4 max-w-5xl mx-auto`}>{children}</main>
+      <footer className={tw`max-w-5xl mx-auto h-[100px] flex items-center justify-center`}>
+        <a href="https://github.com/harshmangalam/freshBlog" target="_blank">
+          <img src="/github-logo.png" className={tw`h-[50px] w-[50px]`} />
+        </a>
+      </footer>
     </div>
   );
 }
