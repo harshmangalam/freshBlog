@@ -15,10 +15,11 @@ export default function BlogPost({
   authorName,
 }: Post) {
   return (
-    <a href={`/${slug}`}>
-      <article
-        className={tw`border shadow rounded-lg dark:border-gray-700 dark:bg-gray-800`}
-      >
+    <a
+      href={`/${slug}`}
+      className={tw`border shadow rounded-lg dark:border-gray-700 dark:bg-gray-800`}
+    >
+      <article>
         <img
           src={poster}
           alt={"Poster image"}
