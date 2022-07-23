@@ -5,7 +5,6 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import Layout from "components/Layout.tsx";
 import BlogPost from "components/BlogPost.tsx";
 import { Marked } from "https://deno.land/x/markdown@v2.0.0/mod.ts";
-import { Status } from "http/http_status.ts";
 import { Post } from "../types/blog.ts";
 export const handler: Handlers = {
   async GET(req, ctx) {
